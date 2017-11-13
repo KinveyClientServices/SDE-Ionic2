@@ -27,7 +27,7 @@ export class ChatPage implements OnDestroy  {
 
    Stream = (Kinvey as any).LiveService.Stream;
    StreamACL = this.Stream.StreamACL;
-   stream = new this.Stream('chats');
+   stream;// = new this.Stream('chats');
 
   ngOnDestroy() {
     console.log('on destroy');
@@ -40,6 +40,8 @@ export class ChatPage implements OnDestroy  {
     .catch((err) => {
         console.log(err);
     });
+
+    this.stream = null;
 
   }
 
@@ -74,6 +76,7 @@ export class ChatPage implements OnDestroy  {
       console.log('success');
       //this.chats.push(this.chatData);
       this.ref.detectChanges();
+      //this.ref.markForCheck();
     })
     .catch(e => {console.log(e)});
   }
@@ -95,7 +98,7 @@ export class ChatPage implements OnDestroy  {
   
   ionViewDidLoad() {
 
-
+this.stream = new this.Stream('chats');
     console.log('ionViewDidLoad ChatPage');
     //console.log(this.brandData.getBrand());
 
@@ -142,6 +145,7 @@ export class ChatPage implements OnDestroy  {
             console.log(m); 
             this.chats.push(m);
             this.ref.detectChanges();
+            //this.ref.markForCheck();
           },
           onStatus: (s) => { console.log(s); },
           onError: (e) => { console.log(e); }
@@ -165,6 +169,7 @@ export class ChatPage implements OnDestroy  {
           this.stream.follow('59c16eb2eedfe14a3f4c1f6d', {
             onMessage: (m) => { console.log(m); 
               this.chats.push(m);
+              //this.ref.markForCheck();
               this.ref.detectChanges();
             },
             onStatus: (s) => { console.log(s); },

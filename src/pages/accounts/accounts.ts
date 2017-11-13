@@ -24,7 +24,9 @@ export class AccountsPage {
 
 
 
-  constructor(private toastCtrl: ToastController, private ref: ChangeDetectorRef, public navCtrl: NavController, public navParams: NavParams, private brandData: BrandData, private myMenu: MenuController, public events:Events) {}
+  constructor(private toastCtrl: ToastController, private ref: ChangeDetectorRef, public navCtrl: NavController, public navParams: NavParams, private brandData: BrandData, private myMenu: MenuController, public events:Events) {
+
+  }
 
   getDetail(account) {
     console.log('getting detail 2');
@@ -103,7 +105,7 @@ export class AccountsPage {
                   for (var i=0; i < this.accounts.length; i++) {
                     if ( this.accounts[i]._id == (entity as any)._id ) {
                       this.accounts[i].accountname = (entity as any).accountname;
-                      ref.detectChanges();
+                      this.ref.detectChanges();
                     }
                   }
 
