@@ -31,6 +31,14 @@ export class ChatPage implements OnDestroy  {
 
   ngOnDestroy() {
     console.log('on destroy');
+
+    var activeUser = Kinvey.User.getActiveUser();
+    //console.log(activeUser._id);
+    this.stream.unfollow('58b6fc8f955c59975a1c1ce7');
+    this.stream.unfollow('59c16eb2eedfe14a3f4c1f6d');
+    //this.stream.unfollow(activeUser._id);
+
+
     this.ref.detach();
 
     this.stream.stopListening()
@@ -71,6 +79,7 @@ export class ChatPage implements OnDestroy  {
     console.log('adding chat');
 
     //this.stream = new (Kinvey as any).LiveService.Stream('chats');
+
     this.stream.post(this.chatData)
     .then(() => {
       console.log('success');
