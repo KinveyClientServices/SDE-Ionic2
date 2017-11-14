@@ -27,16 +27,16 @@ export class ChatPage implements OnDestroy  {
 
    Stream = (Kinvey as any).LiveService.Stream;
    StreamACL = this.Stream.StreamACL;
-   stream;// = new this.Stream('chats');
+   stream;
 
   ngOnDestroy() {
     console.log('on destroy');
 
     var activeUser = Kinvey.User.getActiveUser();
-    //console.log(activeUser._id);
+    
     this.stream.unfollow('58b6fc8f955c59975a1c1ce7');
     this.stream.unfollow('59c16eb2eedfe14a3f4c1f6d');
-    //this.stream.unfollow(activeUser._id);
+    
 
 
     this.ref.detach();
@@ -57,23 +57,6 @@ export class ChatPage implements OnDestroy  {
 
   }
 
-
-  refreshMe() {
-    console.log('refreshing accounts');
-
-    /*const dataStore = Kinvey.DataStore.collection('chats', Kinvey.DataStoreType.Network) as any;
-
-    dataStore.find()
-    .subscribe((entities: {}[]) => {
-      console.log(entities);
-      this.chats = entities;
-    }, (error: Kinvey.KinveyError) => {
-      console.log(error);
-    }, () => {
-      this.ref.detectChanges();
-      console.log('finished loading accounts');
-    });*/
-  }
 
   addMe() {
     console.log('adding chat');
@@ -111,7 +94,7 @@ this.stream = new this.Stream('chats');
     console.log('ionViewDidLoad ChatPage');
     //console.log(this.brandData.getBrand());
 
-    this.refreshMe();
+    //this.refreshMe();
 
     var activeUser = Kinvey.User.getActiveUser();
 
@@ -154,7 +137,7 @@ this.stream = new this.Stream('chats');
             console.log(m); 
             this.chats.push(m);
             this.ref.detectChanges();
-            //this.ref.markForCheck();
+            
           },
           onStatus: (s) => { console.log(s); },
           onError: (e) => { console.log(e); }
@@ -178,7 +161,7 @@ this.stream = new this.Stream('chats');
           this.stream.follow('59c16eb2eedfe14a3f4c1f6d', {
             onMessage: (m) => { console.log(m); 
               this.chats.push(m);
-              //this.ref.markForCheck();
+              
               this.ref.detectChanges();
             },
             onStatus: (s) => { console.log(s); },
@@ -187,8 +170,6 @@ this.stream = new this.Stream('chats');
             .then(() => {console.log('successfully following stream');})
             .catch(e => {console.log(e);});
         })
-        /*.catch((err) => {
-          console.log(err);
-        });*/
+       
   }
 }
