@@ -28,10 +28,10 @@ export class TabsPage {
 
   	if (!this.tabs) {
   		this.tabs = [
-  		{"root": this.myTabs[0], "name": "MyHome", "icon":"md-home"},
-  		{"root": this.myTabs[1], "name": "MyProducts", "icon":"md-briefcase"},
-  		{"root": this.myTabs[2], "name": "MySearch", "icon":"md-search"},
-  		{"root": this.myTabs[3], "name": "MyLogin", "icon":"md-lock"}
+  		{"root": this.myTabs[0], "name": "Home", "icon":"md-home"},
+  		{"root": this.myTabs[1], "name": "Products", "icon":"md-briefcase"},
+  		{"root": this.myTabs[2], "name": "Search", "icon":"md-search"},
+  		{"root": this.myTabs[3], "name": "Login", "icon":"md-lock"}
 
   	];
   	}

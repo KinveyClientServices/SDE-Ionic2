@@ -55,6 +55,10 @@ export class AccountsPage {
     });
   }
 
+  addProduct() {
+    console.log("Added")
+  }
+
   ionViewDidLeave() {
     const activeUser = Kinvey.User.getActiveUser();
     activeUser.unregisterFromLiveService()
@@ -76,54 +80,53 @@ export class AccountsPage {
 
         (activeUser as any).registerForLiveService()
           .then(() => {
-            console.log('successfully registered for live service');
-            var myaccounts = Kinvey.DataStore.collection('accounts', Kinvey.DataStoreType.Network) as any;
+            // var myaccounts = Kinvey.DataStore.collection('accounts', Kinvey.DataStoreType.Network) as any;
 
-            myaccounts.subscribe({
-              onMessage: (m) => {
-                console.log(m);
+          //   myaccounts.subscribe({
+          //     onMessage: (m) => {
+          //       console.log(m);
 
-                let toast = this.toastCtrl.create({
-                  message: JSON.stringify(m),
-                  duration: 3000,
-                  position: 'top'
-                });
+          //       let toast = this.toastCtrl.create({
+          //         message: JSON.stringify(m),
+          //         duration: 3000,
+          //         position: 'top'
+          //       });
 
-                toast.onDidDismiss(() => {
-                  console.log('Dismissed toast');
-                });
+          //       toast.onDidDismiss(() => {
+          //         console.log('Dismissed toast');
+          //       });
 
-                toast.present();
+          //       toast.present();
 
-                var dataStore = Kinvey.DataStore.collection('accounts', Kinvey.DataStoreType.Sync) as Kinvey.SyncStore;
+          //       var dataStore = Kinvey.DataStore.collection('accounts', Kinvey.DataStoreType.Sync) as Kinvey.SyncStore;
 
-                // persist locally
-                //
-                const promise = dataStore.save(m).then((entity: {}) => {
-                  this.ref.detectChanges();
+          //       // persist locally
+          //       //
+          //       const promise = dataStore.save(m).then((entity: {}) => {
+          //         this.ref.detectChanges();
 
-                  for (var i=0; i < this.accounts.length; i++) {
-                    if ( this.accounts[i]._id == (entity as any)._id ) {
-                      this.accounts[i].accountname = (entity as any).accountname;
-                      this.ref.detectChanges();
-                    }
-                  }
+          //         for (var i=0; i < this.accounts.length; i++) {
+          //           if ( this.accounts[i]._id == (entity as any)._id ) {
+          //             this.accounts[i].accountname = (entity as any).accountname;
+          //             this.ref.detectChanges();
+          //           }
+          //         }
 
-                }).catch((error: Kinvey.BaseError) => {
-                  console.log(error);
-                });
-              },
-              onStatus: (s) => {
-                // handle status events, which pertain to this collection
-                console.log(s);
-              },
-              onError: (e) => {
-                // handle error events, which pertain to this collection
-                console.log(e);
-              }
-            })
-          .then(() => {console.log('success');})
-          .catch(e => {console.log(e);});
+          //       }).catch((error: Kinvey.BaseError) => {
+          //         console.log(error);
+          //       });
+          //     },
+          //     onStatus: (s) => {
+          //       // handle status events, which pertain to this collection
+          //       console.log(s);
+          //     },
+          //     onError: (e) => {
+          //       // handle error events, which pertain to this collection
+          //       console.log(e);
+          //     }
+          //   })
+          // .then(() => {console.log('success');})
+          // .catch(e => {console.log(e);});
             
             this.myBrandData = this.brandData.getBrand();
             

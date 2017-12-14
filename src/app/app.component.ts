@@ -37,10 +37,10 @@ export class MyApp {
     this.pages = [
     { title: 'Login', component: LoginPage, icon: 'md-lock' },
       { title: 'Home', component: TabsPage, icon: 'md-home' },
-      { title: 'Reference', component: RefPage, icon: 'md-book' },
+      // { title: 'Reference', component: RefPage, icon: 'md-book' },
       { title: 'Accounts', component: AccountsPage, icon: 'md-people' },
-      { title: 'Add Task', component: TasksPage, icon: 'md-briefcase' },
-      { title: 'Tasks', component: AllTasksPage, icon: 'md-attach' },
+      // { title: 'Add Task', component: TasksPage, icon: 'md-briefcase' },
+      { title: 'Order', component: AllTasksPage, icon: 'md-add' },
       { title: 'Offline', component: OfflinePage, icon: 'md-wifi' },
       { title: 'Geo', component: MapPage, icon: 'md-map' },
       { title: 'Chat', component: ChatPage, icon: 'md-chatboxes' }

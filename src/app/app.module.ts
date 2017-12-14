@@ -18,6 +18,8 @@ import { ChatPage } from '../pages/chat/chat';
 import { BrandData } from '../providers/brand-data';
 import { File } from '@ionic-native/file'
 import { BrowserModule } from '@angular/platform-browser';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { SignatureFieldComponent } from './signature-field/signature-field.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { BrowserModule } from '@angular/platform-browser';
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    BrowserModule
+    BrowserModule,
+    SignaturePadModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
