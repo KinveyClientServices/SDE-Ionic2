@@ -3,9 +3,9 @@ import { Kinvey } from 'kinvey-angular2-sdk';
 import { AppModule } from './app.module';
 
 Kinvey.initialize({
-  appKey: 'kid_ZJk02vOUFg',
-  appSecret: 'c1a32d5b3c474d0fa20a6f33fef396d5'
+  appKey: 'kid_ByFYJ8SDf',
+  appSecret: 'afacbbc33be64dbeab41c05a28597f6e'
 })
   .then((activeUser?: Kinvey.User) => {
-		platformBrowserDynamic().bootstrapModule(AppModule);
+    platformBrowserDynamic().bootstrapModule(AppModule);
   });

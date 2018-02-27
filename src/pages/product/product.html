@@ -4,27 +4,17 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Products
+      My Visits
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let product of products" text-wrap>
-     <ion-grid>
-        <ion-row>
-          <!--<ion-col col-20>-->
-          <ion-col col-20>
-            <ion-thumbnail>
-              <img src="assets/{{product.img}}">
-            </ion-thumbnail>
-          </ion-col>
-          <ion-col col-80>
-            <h2>{{ product.title }}</h2>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-  
-  </ion-item>
+    <ion-item *ngFor="let visit of visits" text-wrap>
+      <ion-icon name="star" item-start></ion-icon>
+      <h2>{{visit.date}}
+      </h2>
+      <h3>{{visit.doctor}}</h3>
+    </ion-item>
   </ion-list>
 </ion-content>

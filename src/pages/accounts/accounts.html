@@ -11,8 +11,8 @@
     <ion-item *ngFor="let account of accounts" (click)="getDetail(account)">
       <ion-icon name="md-person" item-start></ion-icon>
 
-      <h2>{{account.accountname}}</h2>
-      <h3>{{account.accountcompany}}</h3>
+      <h2>{{account.name}}</h2>
+      <h3>{{account.facility}}</h3>
     </ion-item>
   </ion-list>
   <ion-fab top right edge>

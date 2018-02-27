@@ -14,6 +14,9 @@ import { TasksPage } from '../pages/tasks/tasks';
 import { MapPage } from '../pages/map/map';
 import { ChatPage } from '../pages/chat/chat';
 import { AllTasksPage } from '../pages/alltasks/alltasks';
+import { ProductPage } from '../pages/product/product';
+import { Kinvey } from 'kinvey-angular2-sdk';
+import { HomePage } from '../pages/home/home';
 //import { BrandData } from '../../providers/brand-data';
 
 
@@ -24,42 +27,35 @@ import { AllTasksPage } from '../pages/alltasks/alltasks';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = TabsPage;
+  rootPage = HomePage;
 
 
 
-  pages: Array<{title: string, component: any, icon: string}>;
+  pages: Array<{ title: string, component: any, icon: string }>;
 
   constructor(public platform: Platform, public events: Events) {
     this.initializeApp();
-
     // used for an example of ngFor and navigation
     this.pages = [
-    { title: 'Login', component: LoginPage, icon: 'md-lock' },
-      { title: 'Home', component: TabsPage, icon: 'md-home' },
-      { title: 'Reference', component: RefPage, icon: 'md-book' },
-      { title: 'Accounts', component: AccountsPage, icon: 'md-people' },
-      { title: 'Add Task', component: TasksPage, icon: 'md-briefcase' },
-      { title: 'Tasks', component: AllTasksPage, icon: 'md-attach' },
-      { title: 'Offline', component: OfflinePage, icon: 'md-wifi' },
-      { title: 'Geo', component: MapPage, icon: 'md-map' },
-      { title: 'Chat', component: ChatPage, icon: 'md-chatboxes' }
-     
-      
+      { title: 'Login', component: LoginPage, icon: 'md-lock' },
+      { title: 'Home', component: HomePage, icon: 'md-home' },
+      { title: 'Doctors', component: TabsPage, icon: 'md-people' },
+      { title: 'Visits', component: TabsPage, icon: 'md-briefcase' },
+      { title: 'Geo', component: TabsPage, icon: 'md-map' },
     ];
 
     events.subscribe('menu:change', (changearray) => {
-    // user and time are the same arguments passed in `events.publish(user, time)`
-    console.log(changearray.length);
-    //console.log(Object.keys(changearray).length);
-    console.log('loading menu styles');
-    for (let i=0; i < changearray.length; i ++ ) {
-      //console.log(i);
-      //console.log(changearray[i].title);
-      this.pages[i].title = changearray[i].title;
-      this.pages[i].icon = changearray[i].icon;
-    }
-  });
+      // user and time are the same arguments passed in `events.publish(user, time)`
+      console.log(changearray.length);
+      //console.log(Object.keys(changearray).length);
+      console.log('loading menu styles');
+      for (let i = 0; i < changearray.length; i++) {
+        //console.log(i);
+        //console.log(changearray[i].title);
+        this.pages[i].title = changearray[i].title;
+        this.pages[i].icon = changearray[i].icon;
+      }
+    });
 
   }
   openPage(page) {

@@ -1,7 +1,7 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar>
-      <ion-title>We've Got Your Backend</ion-title>
+    <ion-toolbar color="primary">
+      <ion-title>Main Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -9,6 +9,9 @@
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon name="{{p.icon}}"></ion-icon>&nbsp;&nbsp;{{p.title}}
+      </button>
+      <button menuClose ion-item>
+        <ion-icon name="md-unlock"></ion-icon>&nbsp;&nbsp;Logout
       </button>
     </ion-list>
   </ion-content>

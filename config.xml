@@ -65,7 +65,6 @@
     <allow-navigation href="http://192.168.0.9:8100" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-    <engine name="ios" spec="~4.5.3" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.2.1" />
@@ -77,4 +76,6 @@
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-file" spec="^4.3.3" />
+    <engine name="ios" spec="~4.5.4" />
+    <allow-navigation href="http://192.168.2.140:8101" />
 </widget>
