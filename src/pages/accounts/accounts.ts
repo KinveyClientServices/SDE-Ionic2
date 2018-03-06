@@ -19,7 +19,7 @@ import { ToastController } from 'ionic-angular';
 })
 export class AccountsPage {
 
-  accounts = [];
+  accounts: any = 0;
   collection = "doctors";
 
 

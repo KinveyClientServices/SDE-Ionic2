@@ -8,15 +8,19 @@ import { NavController } from 'ionic-angular';
 	templateUrl: 'product.html'
 })
 export class ProductPage {
-	visits: any;
-	collection: string;
+	visits: any = 0;
+	collection: string = "visits";
 
 	constructor(public navCtrl: NavController, private ref: ChangeDetectorRef) {
-		this.collection = "visits";
+
 	}
 
 	ionViewDidLoad() {
 		console.log("Visits view loaded");
+		const activeUser = Kinvey.User.getActiveUser();
+
+
+
 		const dataStore = Kinvey.DataStore.collection(this.collection, Kinvey.DataStoreType.Network);
 
 		dataStore.find()

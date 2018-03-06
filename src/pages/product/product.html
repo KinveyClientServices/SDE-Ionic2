@@ -8,8 +8,10 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+<ion-spinner *ngIf="visits==0"></ion-spinner>
 <ion-content>
-  <ion-list>
+
+  <ion-list *ngIf="visits!=0">
     <ion-item *ngFor="let visit of visits" text-wrap>
       <ion-icon name="star" item-start></ion-icon>
       <h2>{{visit.date}}

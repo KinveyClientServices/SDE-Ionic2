@@ -31,7 +31,7 @@ export class MyApp {
 
 
 
-  pages: Array<{ title: string, component: any, icon: string }>;
+  pages: Array<{ title: string, component: any, icon: string, tab?: any }>;
 
   constructor(public platform: Platform, public events: Events) {
     this.initializeApp();
@@ -39,9 +39,9 @@ export class MyApp {
     this.pages = [
       { title: 'Login', component: LoginPage, icon: 'md-lock' },
       { title: 'Home', component: HomePage, icon: 'md-home' },
-      { title: 'Doctors', component: TabsPage, icon: 'md-people' },
-      { title: 'Visits', component: TabsPage, icon: 'md-briefcase' },
-      { title: 'Geo', component: TabsPage, icon: 'md-map' },
+      { title: 'Doctors', component: TabsPage, icon: 'md-people', tab: { tabIndex: 0 } },
+      { title: 'Visits', component: TabsPage, icon: 'md-briefcase', tab: { tabIndex: 1 } },
+      { title: 'Geo', component: TabsPage, icon: 'md-map', tab: { tabIndex: 2 } },
     ];
 
     events.subscribe('menu:change', (changearray) => {
@@ -61,7 +61,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, page.tab || null);
   }
 
   initializeApp() {

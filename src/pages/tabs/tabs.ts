@@ -5,7 +5,7 @@ import { ProductPage } from '../product/product';
 import { SearchPage } from '../search/search';
 import { LoginPage } from '../login/login';
 import { BrandData } from '../../providers/brand-data';
-import { Events } from 'ionic-angular';
+import { Events, NavParams } from 'ionic-angular';
 import { AccountsPage } from '../accounts/accounts';
 import { MapPage } from '../map/map';
 
@@ -22,16 +22,23 @@ export class TabsPage {
 	//tabs:any;
 	myTabs = [this.doctors, this.visits, this.nav];
 	tabs: any;
+	mySelectedIndex: any;
 
 
-	constructor(private ref: ChangeDetectorRef, public events: Events) {
+	constructor(private navParams: NavParams, private ref: ChangeDetectorRef, public events: Events) {
+
+
+		this.mySelectedIndex = navParams.data.tabIndex || 0;
+
+		console.log("Tab Index is : " + this.mySelectedIndex);
+
 		console.log('*****constructed tabs*****');
 
 		if (!this.tabs) {
 			this.tabs = [
 				{ "root": this.myTabs[0], "name": "Doctors", "icon": "md-people" },
 				{ "root": this.myTabs[1], "name": "Visits", "icon": "md-briefcase" },
-				{ "root": this.myTabs[3], "name": "Nearby", "icon": "md-pin" }
+				{ "root": this.myTabs[2], "name": "Nearby", "icon": "md-pin" }
 
 			];
 		}

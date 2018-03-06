@@ -3,11 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Accounts</ion-title>
+    <ion-title>Doctors</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-list>
+  <ion-spinner *ngIf="accounts==0"></ion-spinner>
+  <ion-list *ngIf="accounts!=0">
     <ion-item *ngFor="let account of accounts" (click)="getDetail(account)">
       <ion-icon name="md-person" item-start></ion-icon>
 
