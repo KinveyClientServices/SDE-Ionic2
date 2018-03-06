@@ -36,11 +36,11 @@ export class MapPage {
   loadMap() {
     console.log('initializing map');
 
-    var myLatlng = new google.maps.LatLng(37.981345, -84.571806);
+    var myLatlng = new google.maps.LatLng(-37.794418, 144.949006);
 
     var mapOptions = {
       center: myLatlng,
-      zoom: 17,
+      zoom: 18.6,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement,

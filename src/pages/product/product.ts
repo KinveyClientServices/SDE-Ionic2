@@ -19,15 +19,13 @@ export class ProductPage {
 		console.log("Visits view loaded");
 		const activeUser = Kinvey.User.getActiveUser();
 
-
-
 		const dataStore = Kinvey.DataStore.collection(this.collection, Kinvey.DataStoreType.Network);
 
 		dataStore.find()
 			.subscribe((entities: {}[]) => {
 				console.log(entities);
 				this.visits = entities;
-				//this.ref.detectChanges();
+				this.ref.detectChanges();
 			}, (error: Kinvey.KinveyError) => {
 				console.log(error);
 			}, () => {
